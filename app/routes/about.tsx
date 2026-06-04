@@ -1,7 +1,9 @@
-import React from 'react'
+import AboutUs from "../about/aboutUs"
 
 export default function about() {
   return (
-    <div>hello from our about page</div>
+    <div>
+        <AboutUs />
+    </div>
   )
 }
