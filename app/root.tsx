@@ -8,6 +8,10 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
+
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -42,7 +46,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      <Navigation />
+      <Outlet />
+      <Footer />
+    </>
+  )
+
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
