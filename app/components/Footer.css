@@ -1,5 +1,1 @@
-.footer{
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: center;
-}
+/* Footer styles are handled via Tailwind classes in Footer.tsx */
