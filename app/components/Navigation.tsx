@@ -1,8 +1,13 @@
 import { NavLink } from "react-router";
 
+import {useTheme} from "../context/ThemeContext";
+
 export default function Navigation() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+      <span>Current Theme: {theme}</span>
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <span className="text-xl font-bold text-indigo-600 tracking-tight">
           MyApp

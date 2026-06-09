@@ -9,6 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 
+import { ThemeProvider } from "./context/ThemeContext";
+
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
@@ -47,13 +49,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <>
+    <ThemeProvider>
       <Navigation />
       <div className="flex-1">
         <Outlet />
       </div>
       <Footer />
-    </>
+    </ThemeProvider>
   )
 
 }
