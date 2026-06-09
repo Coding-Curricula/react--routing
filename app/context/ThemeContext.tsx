@@ -1,6 +1,5 @@
-import { createContext, useContext, useState, type ReactNode } from 'react'
-
-type Theme = 'light' | 'dark';
+import { createContext, useContext, useState, useReducer, type ReactNode } from 'react'
+import { initialThemeState, themeReducer, type Theme } from '../reducers/themeReducer';
 
 interface ThemeContextType {
   theme: Theme;
@@ -10,14 +9,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState<Theme>('light');
+    const [theme, setTheme] = useReducer(themeReducer, initialThemeState);
 
     const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+        setTheme({ type: 'TOGGLE_THEME' });
     }
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ThemeContext.Provider value={{ theme: theme.theme, toggleTheme }}>
             {children}
         </ThemeContext.Provider>
     )
